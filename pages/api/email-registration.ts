@@ -17,7 +17,7 @@ function extractData(filePath: string) {
 
 export default function handler(req: NextApiRequest, res: NextApiResponse<{message: string}>) {
 	const { method } = req;
-	const filePath = path.join("/tmp", "data.json");
+	const filePath = path.join(process.cwd(), "data/tmp", "data.json");
 	const { events_categories, allEvents } = extractData(filePath);
 
 	if (!allEvents) {
