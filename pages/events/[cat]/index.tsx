@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export async function getStaticPaths() {
-	const { events_categories } = await import("data/data.json");
+	const { events_categories } = await import("data/tmp/data.json");
 	const allPaths = events_categories.map(({ id }) => {
 		return {
 			params: {
@@ -26,7 +26,7 @@ interface Context {
 }
 
 export async function getStaticProps(context: Context) {
-	const { allEvents } = await import("data/data.json");
+	const { allEvents } = await import("data/tmp/data.json");
 	const id = context?.params.cat;
 	const data = allEvents.filter((ev) => ev.city === id);
 
