@@ -17,7 +17,7 @@ function extractData(filePath: string) {
 
 export default function handler(req: NextApiRequest, res: NextApiResponse<{message: string}>) {
 	const { method } = req;
-	const filePath = path.join(process.cwd(), "data", "/tmp/data.json");
+	const filePath = path.join("/tmp", "data.json");
 	const { events_categories, allEvents } = extractData(filePath);
 
 	if (!allEvents) {
@@ -62,7 +62,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<{messa
 		);
 
 		res.status(200).json({
-			message: `You have been successfully registered with the email: ${email} fore the event ${eventId}`,
+			message: `You have been successfully registered with the email: b	${email} fore the event ${eventId}`,
 		});
 	}
 }
