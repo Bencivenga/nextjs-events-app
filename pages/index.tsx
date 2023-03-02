@@ -3,7 +3,7 @@ import { EventCategory } from "@/src/types/event-category";
 import Home from "@/src/components/home/home";
 
 export async function getServerSideProps() {
-	const { events_categories } = await import("data/data.json");
+	const { events_categories } = await import("data/tmp/data.json");
 
 	return {
 		props: {
